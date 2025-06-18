@@ -63,7 +63,7 @@ else
 fi
 
 if [ $1 = 'apply' ]; then
-    cp $DEVDIR/kernel/realsense/${JETPACK_VERSION}/d4xx.c $DEVDIR/sources_$JETPACK_VERSION/${D4XX_SRC_DST}/drivers/media/i2c/
+    cp $DEVDIR/kernel/realsense/d4xx.c $DEVDIR/sources_$JETPACK_VERSION/${D4XX_SRC_DST}/drivers/media/i2c/
     if [[ "$JETPACK_VERSION" == "6.0" || "$JETPACK_VERSION" == "6.2" ]]; then
         # jp6 overlay
         cp $DEVDIR/hardware/realsense/tegra234-camera-d4xx-overlay*.dts $DEVDIR/sources_$JETPACK_VERSION/hardware/nvidia/t23x/nv-public/overlay/

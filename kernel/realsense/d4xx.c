@@ -495,7 +495,10 @@ struct ds5_counters {
 #define ds5_from_depth_sd(sd) container_of(sd, struct ds5, depth.sd)
 #define ds5_from_ir_sd(sd) container_of(sd, struct ds5, ir.sd)
 #define ds5_from_rgb_sd(sd) container_of(sd, struct ds5, rgb.sd)
-#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 15, 136)
+// https://github.com/IntelRealSense/realsense_mipi_platform_driver/pull/254#issuecomment-2654404426
+// At some point this function was aded to the kernel so we don't need to define it
+// A different version range might be needed for JetPack 6.1
+#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 15, 136) && LINUX_VERSION_CODE < KERNEL_VERSION(5, 15, 148)
 static inline void msleep_range(unsigned int delay_base)
 {
 	usleep_range(delay_base * 1000, delay_base * 1000 + 500);
